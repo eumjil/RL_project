@@ -19,20 +19,14 @@ Reinforcement Learning for Real-Estate Auction Portfolio Bidding Strategy
 ## 2. 폴더 및 파일 구조 (Project Structure)
 
 ```text
-.
-├─ RL00. 경매데이터 크롤링/         # 경매 데이터 크롤링 코드 (선택, 필요 시)
-├─ RL01. 분석용 데이터 생성/    # 분석용 데이터 생성/정제 코드 (선택, 필요 시)
-├─ RL02. 강화학습/      # 강화학습 환경 정의 및 DQN/SARSA 학습 코드
-├─ RL03. 결과정리(시각화 등)/          # 시각화, 성능 비교, 분석 스크립트
-├─ data/
-├─ raw/                          # 원시(raw) 데이터
-│    └─ sjau_auction_cards_2425.xlsx   # 세종옥션 경매 데이터(2024~2025)
-│
-├─ processed/                    # 전처리 완료 데이터
-│    └─ auction_analysis_ready.csv     # 강화학습 환경 구축에 사용되는 최종 분석용 데이터
-├─ ppt/
-│   └─ 강화학습 과제(A70055 박은지).pptx  # PPT
-└─ README.md              # 프로젝트 소개 및 실행 방법 (현재 파일)
+RL_project/
+├─ RL00. 경매데이터 크롤링.py   # 경매 데이터 크롤링 코드 (선택, 필요 시)
+├─ RL01. 분석용 데이터 생성.py   # 분석용 데이터 생성/정제 코드 (선택, 필요 시)
+├─ RL02. 강화학습.py            # 강화학습 환경 정의 및 DQN/SARSA 학습 코드
+├─ RL03. 결과정리.py            # 시각화, 성능 비교, 분석 스크립트
+├─ auction_analysis_ready.csv    # 전처리 완료 데이터
+├─ RL_project(A70055 박은지).pptx
+└─ README.md                   # 프로젝트 소개 및 실행 방법 (현재 파일)
 
 ```
 
