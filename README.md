@@ -21,7 +21,7 @@ Reinforcement Learning for Real-Estate Auction Portfolio Bidding Strategy
 ```text
 .
 ├─ RL00. 경매데이터 크롤링/         # 경매 데이터 크롤링 코드 (선택, 필요 시)
-├─ RL01. 분석용 데이터 생성/    # 분석용 데이터 생성/정제 코드
+├─ RL01. 분석용 데이터 생성/    # 분석용 데이터 생성/정제 코드 (선택, 필요 시)
 ├─ RL02. 강화학습/      # 강화학습 환경 정의 및 DQN/SARSA 학습 코드
 ├─ RL03. 결과정리(시각화 등)/          # 시각화, 성능 비교, 분석 스크립트
 ├─ data/
@@ -56,15 +56,20 @@ tqdm, gym
 ## 4. 실행 방법 (How to Run)
 
 ```
-1) 데이터 전처리 (선택)
+1) 데이터 수집 (선택)
+cd "RL00. 경매데이터 크롤링"
+python "RL00. 경매데이터 크롤링"
+
+2) 데이터 전처리 (선택)
 cd "RL01. 분석용 데이터 생성"
 python "RL01. 분석용 데이터 생성.py"
 
-2) 강화학습 모델 학습
+3) 강화학습 모델 학습
 cd "RL02. 강화학습"
 python "RL02. 강화학습.py"
+* auction_analysis_ready.csv 이용
 
-3) 결과 분석 및 시각화
+4) 결과 분석 및 시각화
 cd "RL03. 결과정리(시각화 등)"
 python "RL03. 결과정리(시각화 등).py"
 
