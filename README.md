@@ -33,3 +33,33 @@ Reinforcement Learning for Real-Estate Auction Portfolio Bidding Strategy
 ├─ ppt/
 │   └─ 강화학습 과제(A70055 박은지).pptx  # PPT
 └─ README.md              # 프로젝트 소개 및 실행 방법 (현재 파일)
+
+
+## 3. 개발 환경 (Environment)
+
+Python 3.x
+
+주요 라이브러리:
+
+pandas, numpy, matplotlib
+
+scikit-learn
+
+torch (PyTorch)
+
+tqdm, gym
+
+
+## 4. 실행 방법 (How to Run)
+1) 데이터 전처리 (선택)
+cd "RL01. 분석용 데이터 생성"
+python "RL01. 분석용 데이터 생성.py"
+
+2) 강화학습 모델 학습
+cd "RL02. 강화학습"
+python "RL02. 강화학습.py"
+
+3) 결과 분석 및 시각화
+cd "RL03. 결과정리(시각화 등)"
+python "RL03. 결과정리(시각화 등).py"
+
