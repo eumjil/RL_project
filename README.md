@@ -25,7 +25,7 @@ RL_project/
 ├─ RL02. 강화학습.py            # 강화학습 환경 정의 및 DQN/SARSA 학습 코드
 ├─ RL03. 추가 시각화 등.py            # 시각화 
 ├─ auction_analysis_ready.csv    # 전처리 완료 데이터
-├─ RL_project(A70055 박은지).pptx
+├─ RL_project(A70055 박은지).pdf   # 결과보고서
 └─ README.md                   # 프로젝트 소개 및 실행 방법 (현재 파일)
 
 ```
@@ -64,8 +64,4 @@ python "RL02. 강화학습.py"
 python "RL03. 추가 시각화 등.py"
 * aRL02. 강화학습.py 결과값 이용
 
-```
-## 5. 결과보고서
 
-```
-RL_project(A70055 박은지).pdf
