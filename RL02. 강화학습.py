@@ -53,7 +53,7 @@ print("사용 가능한 샘플 수:", len(df))
 
 
 # =========================
-# 1. 예산·대출 제약을 고려한 경매 RL 환경
+# 1. 경매 강화학습 환경 정의: 예산·대출 제약을 고려한 경매 RL 환경
 # =========================
 
 class PortfolioAuctionEnv:
@@ -353,7 +353,7 @@ def train_dqn(
 
 
 # =========================
-# A. 공통: epsilon-greedy, 정책 평가 함수
+# 3. 공통: epsilon-greedy, 정책 평가 함수
 # =========================
 
 def epsilon_greedy_from_q(q_values, epsilon: float):
@@ -413,7 +413,7 @@ def evaluate_policy(
 
 
 # =========================
-# B. Baseline 정책 2개
+# 4. Baseline 정책 2개
 # =========================
 
 def random_policy(state):
@@ -432,7 +432,7 @@ def conservative70_policy(state):
 
 
 # =========================
-# C. SARSA (NN 기반) 구현
+# 5. SARSA (NN 기반) 구현
 # =========================
 
 class SarsaNet(nn.Module):
@@ -535,7 +535,7 @@ def train_sarsa(
 
 
 # =========================
-# D. 학습된 DQN, SARSA 정책 (greedy)
+# 6. 학습된 DQN, SARSA 정책 (greedy)
 # =========================
 
 def dqn_greedy_policy_factory(q_net, device="cpu"):
@@ -563,7 +563,7 @@ def sarsa_greedy_policy_factory(sarsa_net, device="cpu"):
 
 
 # =========================
-# 3. 실행
+# 7. 실행 (환경 생성, 학습, 평가)
 # =========================
 
 if __name__ == "__main__":
@@ -683,15 +683,15 @@ if __name__ == "__main__":
 
 
 # ============================================================
-# 4. 해석용 분석: 정책 민감도(Policy Sensitivity) + SHAP 중요도
+# 9. 해석용 분석: 정책 민감도(Policy Sensitivity) + SHAP 중요도
 #    - 최종 선택 모델인 SARSA 기준으로만 수행
 # ============================================================
 
-# 4-0. 상태 이름 정의 (env.state 구성 순서와 동일)
+# 9-0. 상태 이름 정의 (env.state 구성 순서와 동일)
 STATE_NAMES = ["cash_ratio", "episode_progress"] + STATE_FEATURES
 
 
-# 4-1. SARSA 네트워크에서 greedy action 뽑는 함수
+# 9-1. SARSA 네트워크에서 greedy action 뽑는 함수
 def greedy_action(model, state_vec, device="cpu"):
     """
     state_vec: shape (state_dim,) numpy array
@@ -704,7 +704,7 @@ def greedy_action(model, state_vec, device="cpu"):
     return action
 
 
-# 4-2. 기준 상태(baseline state) 만들기
+# 9-2. 기준 상태(baseline state) 만들기
 #  - 물건 특성은 df의 median, cash_ratio=1.0, progress=0.5 로 설정
 median_features = df[STATE_FEATURES].median().values.astype(np.float32)
 baseline_state = np.concatenate([
@@ -713,7 +713,7 @@ baseline_state = np.concatenate([
 ])
 
 
-# 4-3. 상태 변수 변화에 따른 행동 변화 시각화 (Policy Sensitivity Plot)
+# 9-3. 상태 변수 변화에 따른 행동 변화 시각화 (Policy Sensitivity Plot)
 import matplotlib.pyplot as plt
 
 # 민감도 분석에 사용할 연속형 변수들
@@ -765,7 +765,7 @@ def plot_policy_sensitivity_sarsa(sarsa_net, device="cpu"):
     plt.show()
 
 
-# 4-4. SHAP 분석 위해 상태 샘플링 함수 정의
+# 9-4. SHAP 분석 위해 상태 샘플링 함수 정의
 def sample_states(env, policy_fn, num_episodes=10):
     """
     환경에서 여러 에피소드를 돌리며 state들을 수집
@@ -782,7 +782,7 @@ def sample_states(env, policy_fn, num_episodes=10):
     return np.array(states, dtype=np.float32)
 
 
-# 4-5. SARSA Q-value 예측 함수 (SHAP용)
+# 9-5. SARSA Q-value 예측 함수 (SHAP용)
 def sarsa_predict(states_np):
     """
     SHAP KernelExplainer에서 사용할 예측 함수
@@ -797,7 +797,7 @@ def sarsa_predict(states_np):
     return best_q.cpu().numpy()
 
 
-# 4-6. SHAP 기반 Feature Importance 계산 & 시각화
+# 9-6. SHAP 기반 Feature Importance 계산 & 시각화
 def shap_feature_importance_sarsa(env, sarsa_net, sarsa_policy, device="cpu"):
     # 1) background: 랜덤 정책으로 생성한 state 일부
     bg_states_all = sample_states(env, random_policy, num_episodes=8)
@@ -846,7 +846,7 @@ def shap_feature_importance_sarsa(env, sarsa_net, sarsa_policy, device="cpu"):
         print(f"{name:20s} : {imp:.6f}")
 
 
-# 4-7. 실제 실행 (SARSA 기준)
+# 9-7. 실제 실행 (SARSA 기준)
 if __name__ == "__main__":
     # 위에서 이미 env, sarsa_net, sarsa_policy, device 정의되어 있음
 
@@ -907,9 +907,9 @@ def plot_q_sensitivity_sarsa(sarsa_net, device="cpu"):
 
 
 
-
-## Q 민감도
-
+# ============================================================
+## 10. Q 민감도
+# ============================================================
 def plot_q_sensitivity_sarsa(sarsa_net, device="cpu"):
     fig, axes = plt.subplots(1, len(SENSITIVITY_FEATURES),
                              figsize=(5*len(SENSITIVITY_FEATURES), 4),
@@ -961,4 +961,5 @@ def plot_q_sensitivity_sarsa(sarsa_net, device="cpu"):
 
 print("\n=== [분석] SARSA Q-value 민감도 시각화 ===")
 plot_q_sensitivity_sarsa(sarsa_net, device=device)
+
 
