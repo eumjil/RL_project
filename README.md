@@ -12,7 +12,18 @@ Reinforcement Learning for Real-Estate Auction Portfolio Bidding Strategy
 - 알고리즘(Algorithms): DQN, SARSA 기반 에이전트 학습
 - 목표(Goal):  
   - 랜덤 전략 대비 수익 개선 검증  
-  - 보수적/공격적 입찰 전략의 특성 분석  
+  - 보수적/공격적 입찰 전략의 특성 분석
+ 
+
+---
+
+# 프로젝트 최종 보고서 (PDF 다운로드/열기)
+
+---
+
+아래 링크를 클릭하면 PDF를 바로 열람할 수 있습니다:
+
+👉  [RL_project(A70055 박은지).pdf 열기](https://raw.githubusercontent.com/eumjil/RL_project/main/RL_project(A70055%20%EB%B0%95%EC%9D%80%EC%A7%80).pdf)
 
 ---
 
