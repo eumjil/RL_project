@@ -51,7 +51,7 @@ RL_project/
 
 ```text
 
-Python 3.x
+Python 3.13
 
 주요 라이브러리:
 
