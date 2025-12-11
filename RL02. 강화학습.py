@@ -206,7 +206,7 @@ class PortfolioAuctionEnv:
 
 
 # =========================
-# 2. DQN 정의 (네가 쓰던 구조 그대로)
+# 2. DQN 정의 
 # =========================
 
 class DQN(nn.Module):
@@ -961,3 +961,4 @@ def plot_q_sensitivity_sarsa(sarsa_net, device="cpu"):
 
 print("\n=== [분석] SARSA Q-value 민감도 시각화 ===")
 plot_q_sensitivity_sarsa(sarsa_net, device=device)
+
