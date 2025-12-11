@@ -24,7 +24,7 @@ Reinforcement Learning for Real-Estate Auction Portfolio Bidding Strategy
  - SHAP 기반 Feature Importance 분석
 
 
-# 프로젝트 최종 보고서 (PDF 다운로드/열기)
+## 프로젝트 최종 보고서 (PDF 다운로드/열기)
 
 
 아래 링크를 클릭하면 PDF를 바로 열람할 수 있습니다:
