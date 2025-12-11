@@ -6,6 +6,7 @@ Reinforcement Learning for Real-Estate Auction Portfolio Bidding Strategy
 ## 1. 프로젝트 개요 (Overview)
 
 이 프로젝트는 강화학습을 이용하여 부동산(서울시 아파트) 경매 입찰 전략을 최적화하는 분석을 수행한 것입니다.
+
 감정가, 최저가율, 거래지표 등 경매 물건들의 특성과 예산·대출(LTV) 제약 조건을 반영한 RL 환경을 정의하고,
 두 가지 RL 알고리즘을 적용하여 수익 극대화 전략을 학습합니다.
 
