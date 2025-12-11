@@ -74,6 +74,7 @@ seaborn
 ```
 1) 데이터 수집 (선택)
 python "RL00. 경매데이터 크롤링"
+* 내용: 경매데이터제공사이트에서 자료수집
 
 2) 데이터 전처리 (선택)
 python "RL01. 분석용 데이터 생성.py"
@@ -81,7 +82,7 @@ python "RL01. 분석용 데이터 생성.py"
 3) 강화학습 모델 학습
 python "RL02. 강화학습.py"
 * auction_analysis_ready.csv 파일을 실행
-
+* 내용
  - a. 데이터 로드 및 상태 변수 구성
  - b. 경매 강화학습 환경 정의(PortfolioAuctionEnv)
  - c. DQN 학습, SARSA 학습
@@ -90,8 +91,8 @@ python "RL02. 강화학습.py"
 
 4) 결과 분석 및 시각화
 python "RL03. 추가 시각화 등.py"
-* aRL02. 강화학습.py 결과값 이용
-
+* RL02. 강화학습.py의 모델할습 결과 활용
+* 내용
  - a. DQN vs SARSA 학습 곡선 비교
  - b. 정책별 평균 Reward + 95% 신뢰구간 (Bar Plot)
  - c. 정책별 Reward 분포 Boxplot (샘플링 기반)
